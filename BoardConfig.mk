@@ -49,6 +49,8 @@ ARCH_ARM_USE_NON_NEON_MEMCPY := true
 
 TARGET_USERIMAGES_USE_EXT4 := true
 
+TARGET_PREBUILT_KERNEL := device/asus/grouper/kernel
+
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 681574400
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 6567231488
 BOARD_FLASH_BLOCK_SIZE := 4096
@@ -66,7 +68,8 @@ WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P     := "/vendor/firmware/fw_bcmdhd_p2p.bin"
 
-TARGET_BOOTLOADER_BOARD_NAME := grouper
+#TARGET_BOOTLOADER_BOARD_NAME := grouper
+TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_INFO_FILE := device/asus/grouper/board-info.txt
 
 BOARD_USES_GENERIC_AUDIO := false
