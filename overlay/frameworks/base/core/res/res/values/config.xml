@@ -226,4 +226,6 @@
 
     <!-- The attenuation in dB applied to the lock/unlock sounds. -->
     <integer name="config_lockSoundVolumeDb">0</integer>
+
+    <bool name="config_isTegra3">true</bool>
 </resources>
