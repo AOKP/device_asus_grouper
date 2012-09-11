@@ -31,6 +31,9 @@
 USE_CAMERA_STUB := true
 USE_PROPRIETARY_AUDIO_EXTENSIONS := false
 
+TARGET_KERNEL_SOURCE = kernel/asus/grouper
+TARGET_KERNEL_CONFIG = faux_grouper_defconfig
+
 -include vendor/asus/grouper/BoardConfigVendor.mk
 
 # inherit from the proprietary version
