@@ -73,6 +73,9 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := grouper
 TARGET_BOARD_INFO_FILE := device/asus/grouper/board-info.txt
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := grouper
+
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := false
 
