@@ -82,5 +82,7 @@ NEED_WORKAROUND_CORTEX_A9_745320 := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/asus/grouper
 
-#TARGET_KERNEL_SOURCE = kernel/asus/grouper
-#TARGET_KERNEL_CONFIG = faux_grouper_defconfig
+# TARGET_KERNEL_SOURCE = kernel/asus/grouper
+# TARGET_KERNEL_CONFIG = faux_grouper_defconfig
+
+TARGET_PREBUILT_KERNEL = device/asus/grouper/kernel
