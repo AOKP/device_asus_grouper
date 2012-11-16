@@ -59,6 +59,8 @@ WIFI_DRIVER_FW_PATH_P2P     := "/vendor/firmware/fw_bcmdhd_p2p.bin"
 TARGET_BOOTLOADER_BOARD_NAME := grouper
 TARGET_NO_BOOTLOADER := true
 
+TARGET_OTA_ASSERT_DEVICE := grouper
+
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := false
 
