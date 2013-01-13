@@ -13,7 +13,8 @@ debug.nfc.se=false
 ro.sf.lcd_density=213
 
 # hardware info
-ro.device.cpu=1.3GHz quad-core Nvidia Tegra 3
+ro.device.chipset=Nvidia Tegra 3
+ro.device.cpu=1.3GHz quad-core Cortex-A9
 ro.device.gpu=ULP GeForce
 ro.device.rear_cam=None
 ro.device.front_cam=1.2 MP
