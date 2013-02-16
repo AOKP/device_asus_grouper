@@ -37,5 +37,8 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_grouper
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/asus/grouper
 
+TARGET_KERNEL_SOURCE = kernel/asus/grouper
+TARGET_KERNEL_CONFIG = tegra3_android_defconfig
+
 -include vendor/asus/grouper/BoardConfigVendor.mk
 include device/asus/grouper/BoardConfigCommon.mk
