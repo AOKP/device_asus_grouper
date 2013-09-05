@@ -25,18 +25,40 @@
 # 405518 = JRO03H
 # 438695 = JRO03R
 # 463694 = JZO54G
+# 485486 = JZO54K
 # end jb-dev
-BRANCH=jb-dev
-if test $BRANCH=jb-dev
+# start jb-mr1-dev
+# 521994 = JOP32B
+# 524024 = JOP36
+# 527221 = JOP40
+# 527662 = JOP40C
+# 561924 = JOP40G
+# end jb-mr1-dev
+# start jb-mr1.1-dev
+# 551245 = JDP82
+# 573038 = JDQ39
+# end jb-mr1.1-dev
+BRANCH=jb-mr1.1-dev
+if test $BRANCH = jb-dev
 then
-  ZIP=nakasi-ota-438695.zip
-  BUILD=jro03r
+  ZIP=nakasi-ota-485486.zip
+  BUILD=jzo54k
 fi # jb-dev
+if test $BRANCH = jb-mr1-dev
+then
+  ZIP=nakasi-ota-561924.zip
+  BUILD=jop40g
+fi # jb-mr1-dev
+if test $BRANCH = jb-mr1.1-dev
+then
+  ZIP=nakasi-ota-573038.zip
+  BUILD=jdq39
+fi # jb-mr1.1-dev
 ROOTDEVICE=grouper
 DEVICE=grouper
 MANUFACTURER=asus
 
-for COMPANY in asus broadcom elan invensense nvidia nxp trusted_logic widevine
+for COMPANY in asus broadcom elan invensense nvidia nxp widevine
 do
   echo Processing files from $COMPANY
   rm -rf tmp
@@ -46,7 +68,6 @@ do
   case $COMPANY in
   asus)
     TO_EXTRACT="\
-            system/bin/btmacreader \
             system/bin/sensors-config \
             system/lib/hw/camera.tegra3.so \
             system/lib/hw/sensors.grouper.so \
@@ -77,6 +98,7 @@ do
     ;;
   nvidia)
     TO_EXTRACT="\
+            system/bin/tf_daemon \
             system/etc/firmware/nvavp_os_00001000.bin \
             system/etc/firmware/nvavp_os_0ff00000.bin \
             system/etc/firmware/nvavp_os_e0000000.bin \
@@ -138,11 +160,6 @@ do
   nxp)
     TO_EXTRACT="\
             system/vendor/firmware/libpn544_fw.so \
-            "
-    ;;
-  trusted_logic)
-    TO_EXTRACT="\
-            system/bin/tf_daemon \
             "
     ;;
   widevine)

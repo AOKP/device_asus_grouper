@@ -1,4 +1,4 @@
-# Copyright (C) 2012 The Android Open Source Project
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,20 +12,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifeq ($(TARGET_ARCH),arm)
+ifneq (,$(filter grouper tilapia, $(TARGET_DEVICE)))
+
+# This is a nasty hack. keystore.grouper is Open Source, but it
+# links against a non-Open library, so we can only build it
+# when that library is present.
+ifeq ($(BOARD_HAS_TF_CRYPTO_SST),true)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := audio.primary.grouper
+LOCAL_MODULE := keystore.grouper
+
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+
 LOCAL_SRC_FILES := \
-	audio_hw.c
-LOCAL_C_INCLUDES += \
-	external/tinyalsa/include \
-	$(call include-path-for, audio-utils) \
-	$(call include-path-for, audio-route)
-LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioutils libaudioroute
+	keymaster_grouper.cpp
+
+LOCAL_C_INCLUDES := \
+	libcore/include \
+	external/openssl/include \
+	$(LOCAL_PATH)/../security/tf_sdk/include
+
+LOCAL_CFLAGS := -fvisibility=hidden -Wall -Werror
+
+LOCAL_SHARED_LIBRARIES := libcutils liblog libcrypto libtf_crypto_sst
+
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
 
+endif
+endif
+endif
